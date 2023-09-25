@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="flex justify-center w-full border-b border-gray-100">
+    <header class="flex justify-center w-full">
       <div class="w-full mx-auto">
         <!-- top settings nav -->
         <div
