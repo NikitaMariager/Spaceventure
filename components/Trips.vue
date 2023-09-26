@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl">
+  <div class="bg-LightGrey pb-20">
     <div class="flex gap-6 justify-center -mt-12">
       <div v-for="trip in Trips">
         <NuxtLink :to="`/ture/${trip._id}`" class="relative">
@@ -18,10 +18,11 @@
         </NuxtLink>
       </div>
     </div>
-
-    <NuxtLink to="/ture" class="mx-auto"
-      >Vores ture <font-awesome-icon icon="fa-solid fa-arrow-right" />
-    </NuxtLink>
+    <div class="text-center pt-6">
+      <NuxtLink to="/ture" class="font-light"
+        >Vores ture <font-awesome-icon icon="fa-solid fa-arrow-right" />
+      </NuxtLink>
+    </div>
   </div>
 </template>
 <script setup>

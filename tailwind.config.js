@@ -11,7 +11,18 @@ export default {
         BlueGrey: "#596875",
         DarkBlueGrey: "#304559",
       },
+      keyframes: {
+        wiggle: {
+          "0%": { " object-position": "bottom" },
+          "50%": { " object-position": "top" },
+          "100%": { " object-position": "bottom" },
+        },
+      },
+      animation: {
+        wiggleUp: "wiggle 100s infinite",
+      },
     },
   },
+  safelist: ["animate-wiggleUp"],
   plugins: [],
 };
