@@ -1,25 +1,16 @@
 <template>
   <div>
-    <div class="bg-gainsboro pt-36 md:pt-20 pb-12 px-6">
-      <div
-        class="container w-full md:max-w-6xl px-6 md:px-0 mx-auto flex justify-between items-center"
-      >
-        <h1 class="text-3xl">Admin</h1>
-        <Breadcrumbs />
-      </div>
-    </div>
-
-    <div class="container max-w-6xl mx-auto">
-      <div class="flex mt-6 gap-6">
+    <div class="container max-w-6xl mx-auto py-12">
+      <h1 class="text-3xl">Admin</h1>
+      <div class="flex mt-6 gap-12">
         <!-- Admin nav -->
-        <div class="w-1/2 mt-6">
+        <div class="w-fit">
           <div v-for="link in adminArray">
             <NuxtLink
               :to="link.path"
               class="border-2 border-DarkBlue flex items-center mb-3 p-3 w-full lg:w-72 transition duration-700 ease-in-out group hover:bg-Aqua hover:text-white"
               :class="{
-                ' bg-safetyOrangeBlazeOrange text-white':
-                  link.path === $route.fullPath,
+                ' bg-Aqua text-white': link.path === $route.fullPath,
                 ' bg-white': !link.path === $route.fullPath,
               }"
             >
@@ -30,6 +21,7 @@
           </div>
         </div>
 
+        <!-- sidevidsning -->
         <div class="w-full">
           <NuxtPage />
         </div>
@@ -40,8 +32,10 @@
 
 <script setup>
 const adminArray = [
-  { path: "/admin/om-os", text: "om os" },
-  { path: "/admin/nyheder", text: "Nyheder" },
-  { path: "/admin/booking", text: "Booking" },
+  { path: "/admin/ture", text: "Ture" },
+  { path: "/admin/rumfaergen", text: "Rumfærgen" },
+  { path: "/admin/kontakt", text: "Kontakt" },
+  { path: "/admin/nyhedsbreve", text: "Nyhed" },
+  { path: "/admin/bruger", text: "Brugere" },
 ];
 </script>
