@@ -56,11 +56,12 @@ const handleSubmit = async () => {
         // Admin user login
         // Redirect to the admin dashboard or perform admin-specific actions
         msg.value = "AdminLogin successful!";
-        navigateTo("/admin");
+        navigateTo("/admin/ture");
       } else {
         // Regular user login
         // Redirect to the user dashboard or perform user-specific actions
         msg.value = "Login successful! ";
+        navigateTo(`/bruger?email=${formData.value.email}`);
       }
     } else {
       msg.value = `"Ups, der er sket en fejl. Tjek venligt dit login "`;

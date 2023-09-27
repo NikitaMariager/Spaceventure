@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md transition duration-200 overflow-hidden h-full mb-6">
+  <form class="shadow-md transition duration-200 overflow-hidden h-full mb-6">
     <div>
       <!-- image 1 -->
       <div class="w-full h-full flex justify-between flex-col">
@@ -54,7 +54,6 @@
         <input
           type="text"
           name="traveltime"
-          required
           v-model="postTraveltime"
           placeholder=" ca. 45 timer"
           class="p-3 placeholder:text-black border-none bg-LightGrey w-full mb-3"
@@ -102,13 +101,14 @@
       </div>
 
       <button
+        type="submit"
         class="bg-Aqua text-white p-3 w-full mb-3 mt-6 hover:bg-DarkBlue"
         @click="handleSubmit"
       >
         Tilføj ny tur
       </button>
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup>
@@ -156,14 +156,16 @@ const handleSubmit = async () => {
       formData.append("image1", image1.value);
       formData.append("image2", image2.value);
 
-      const { data: responseData } = await useFetch(
+      const { data: responseData, error } = await useFetch(
         "http://localhost:4444/tours/admin",
         {
           method: "post",
           body: formData,
         }
       );
-      if (responseData) {
+      if (error) {
+        setMessage(error + " tjek at alle felter er udfyldt korrekt");
+      } else if (responseData) {
         close();
         setMessage(postTitle.value);
       }

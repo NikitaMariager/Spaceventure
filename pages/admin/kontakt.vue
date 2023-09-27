@@ -1,13 +1,28 @@
 <template>
   <div class="w-full">
-    <h2 class="text-2xl font-bold">Bookings</h2>
-    <div v-for="contact in contacts">
+    <div class="flex justify-between items-center pb-12">
+      <h2 class="text-2xl font-bold">Kontak - beskeder</h2>
+      <div class="flex">
+        <p>Sorter efter:</p>
+        <select
+          v-model="sorting"
+          name="sorting"
+          placeholder="Dato"
+          :value="sorting"
+        >
+          <option value="received">Dato</option>
+          <option value="name">Navn</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+    </div>
+    <div v-for="contact in sortedContacts">
       <div class="border-2 border-platinum p-6 mb-6">
         <div class="flex items-center justify-between">
           <p class="font-bold">{{ contact.name }}</p>
 
           <button
-            class="p-3 text-white w-32 hover:bg-safetyOrangeBlazeOrange"
+            class="p-3 text-white w-32 hover:bg-DarkBlue"
             :class="{
               ' bg-gray-400': contact.read === false,
               'bg-Aqua': contact.read === true,
@@ -23,21 +38,39 @@
           </button>
         </div>
 
-        <div class="flex">
-          <p class="pr-3">Tilføj note</p>
-          <p class="border-x border-gray-400 px-3">Se detaljer</p>
-          <p class="px-3">Slet</p>
+        <div class="flex text-gray-500">
+          <p class="border-r border-gray-400 pr-3">
+            Email: {{ contact.email }}
+          </p>
+          <p class="border-r border-gray-400 px-3">
+            Modtaget d. {{ dateConvertDay(contact.received) }}
+          </p>
+          <p
+            class="px-3 cursor-pointer hover:text-red-800"
+            @click="handleDelete(contact._id)"
+          >
+            Slet
+          </p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-3 mt-3">
+          <p>{{ contact.message }}</p>
         </div>
       </div>
     </div>
+
+    <RespondMsg :msg="msg" :displayRes="displayRes" />
   </div>
 </template>
 <script setup>
 const readChange = ref("");
+const msg = ref("");
+const displayRes = ref(false);
+const sorting = ref("received");
 
 const { data: contacts } = await useFetch(
   "http://localhost:4444/contact/admin",
-  { watch: [readChange] }
+  { watch: [readChange, msg] }
 );
 
 const read = async (id, status) => {
@@ -50,6 +83,63 @@ const read = async (id, status) => {
   );
   if (read) {
     readChange.value = id + status;
+  }
+};
+
+/* dato */
+function dateConvertDay(eventDate) {
+  const formatetDate = eventDate.substring(0, 10);
+
+  const date = new Date(formatetDate).toLocaleString("da", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+
+  const day = date.replace(".", "");
+
+  return day;
+}
+
+const sortedContacts = computed(() => {
+  console.log(sorting.value);
+  return contacts.value.slice().sort((a, b) => {
+    switch (sorting.value) {
+      case "received":
+        const dateA = new Date(a.received);
+        const dateB = new Date(b.received);
+        return dateB - dateA;
+      case "name":
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        return nameA.localeCompare(nameB);
+      case "email":
+        const emailA = a.email.toLowerCase();
+        const emailB = b.email.toLowerCase();
+        return emailA.localeCompare(emailB);
+      default:
+        return 0; // No sorting
+    }
+  });
+});
+
+/* Delete */
+
+const handleDelete = async (id) => {
+  if (confirm("Er du sikker på du vil slette?")) {
+    const { data: responseData } = await useFetch(
+      `http://localhost:4444/contact/admin/${id}`,
+      {
+        method: "delete",
+      }
+    );
+    if (responseData) {
+      msg.value = `Besked er nu slettet`;
+      displayRes.value = true;
+      setInterval(() => {
+        displayRes.value = false;
+      }, 6000);
+    }
   }
 };
 </script>

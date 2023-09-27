@@ -35,7 +35,7 @@ const adminArray = [
   { path: "/admin/ture", text: "Ture" },
   { path: "/admin/rumfaergen", text: "Rumfærgen" },
   { path: "/admin/kontakt", text: "Kontakt" },
-  { path: "/admin/nyhedsbreve", text: "Nyhed" },
+  { path: "/admin/nyhedsbreve", text: "Nyhedsbrev" },
   { path: "/admin/bruger", text: "Brugere" },
 ];
 </script>
