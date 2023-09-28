@@ -11,10 +11,10 @@
         <div class="flex flex-row gap-2">
           <!-- Prev button -->
           <button
-            class="w-12 h-12 rounded-full text-center border border-platinum"
+            class="w-12 h-12 rounded-full text-center border border-platinum hover:text-Aqua"
             @click="prev"
             :disabled="current <= 1"
-            :class="{ ' bg-platinum': current <= 1 }"
+            :class="{ ' text-gray-500': current <= 1 }"
           >
             <font-awesome-icon icon="fa-solid fa-caret-left" />
           </button>
@@ -22,7 +22,7 @@
           <!-- page number buttons -->
           <div v-for="i in Math.ceil(tours.length / pageSize)">
             <button
-              class="w-12 h-12 rounded-full text-center border border-platinum"
+              class="w-12 h-12 rounded-full text-center border border-platinum hover:text-Aqua"
               :class="{ ' text-Aqua': i === current }"
               @click="goToPage(i)"
             >
@@ -32,11 +32,11 @@
 
           <!-- Next button -->
           <button
-            class="w-12 h-12 rounded-full text-center border border-platinum"
+            class="w-12 h-12 rounded-full text-center border border-platinum hover:text-Aqua"
             @click="next"
             :disabled="current >= Math.ceil(tours.length / pageSize)"
             :class="{
-              'bg-platinum': current >= Math.ceil(tours.length / pageSize),
+              ' text-gray-500': current >= Math.ceil(tours.length / pageSize),
             }"
           >
             <font-awesome-icon icon="fa-solid fa-caret-right" />

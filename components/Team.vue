@@ -1,7 +1,7 @@
 <template>
   <div class="pb-20">
     <h2 class="text-center mb-16 font-semibold text-4xl">Vores team</h2>
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <div v-for="member in team">
         <div class="w-full relative mt-16">
           <div

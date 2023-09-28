@@ -27,7 +27,7 @@
           <div class="mt-6">
             <NuxtLink
               :to="`/ture/${turInfo._id}`"
-              class="border-2 border-black py-3 px-8"
+              class="border-2 border-black py-3 px-8 transition-all duration-200 hover:border-Aqua hover:bg-Aqua"
               >Se mere</NuxtLink
             >
           </div>

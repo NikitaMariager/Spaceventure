@@ -4,7 +4,7 @@
     <transition name="fade">
       <div
         id="pagetop"
-        class="fixed right-10 bottom-10 bg-Aqua py-4 px-5 cursor-pointer"
+        class="fixed right-10 bottom-10 bg-Aqua py-4 px-5 cursor-pointer hover:bg-black"
         v-show="scY"
         @click="toTop"
       >

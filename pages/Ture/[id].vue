@@ -3,19 +3,19 @@
     <div class="flex gap-16">
       <!-- images -->
       <div class="flex flex-col gap-6 w-1/2">
-        <div class="w-full h-full">
+        <div class="w-full h-full overflow-hidden">
           <img
             :src="`http://localhost:4444/images/tours/${tour.image1}`"
             :alt="tour.destination"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover hover:scale-125 transition duration-300"
           />
         </div>
 
-        <div class="w-full h-full">
+        <div class="w-full h-full overflow-hidden">
           <img
             :src="`http://localhost:4444/images/tours/${tour.image2}`"
             :alt="tour.destination"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover hover:scale-125 transition duration-300"
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-6xl w-full h-[400px]">
+    <div class="max-w-6xl w-full h-[400px] relative z-40">
       <LMap v-if="coordinates" ref="map" :zoom="zoom" :center="coordinates">
         <LTileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
