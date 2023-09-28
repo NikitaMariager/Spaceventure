@@ -47,7 +47,7 @@
     <section class="mb-10">
       <div class="news-bg bg-pos h-8"></div>
       <div class="news-bg text-center py-20 text-white">
-        <h4 class="text-5xl font-semibold">Tilmeld dig og få 25% rabat</h4>
+        <h5 class="text-5xl font-semibold">Tilmeld dig og få 25% rabat</h5>
         <p class="py-6 font-semibold text-sm">
           Tilmeld dig vores nyhedsbrev og få 25% rabat på din første tur!
         </p>

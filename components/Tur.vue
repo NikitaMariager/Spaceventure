@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div class="flex mb-10 border-[1px] border-LightGrey">
-      <div class="w-1/2">
+    <div
+      class="flex flex-col md:flex-row mb-10 border-[1px] border-LightGrey mx-6 md:mx-0"
+    >
+      <div class="w-full md:w-1/2">
         <img
           :src="`http://localhost:4444/images/tours/${turInfo.image1}`"
           alt=""
@@ -9,14 +11,14 @@
         />
       </div>
 
-      <div class="relative w-1/2">
+      <div class="relative w-full md:w-1/2">
         <div
           class="pricemark bg-Aqua px-3 pt-6 pb-10 uppercase text-white w-fit absolute right-0"
         >
           {{ turInfo.price }}
         </div>
 
-        <div class="p-20 mb-6">
+        <div class="p-12 md:p-20 mb-6">
           <h3 class="text-xl">{{ turInfo.title }}</h3>
           <div
             v-html="turInfo.content"

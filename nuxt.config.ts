@@ -11,12 +11,10 @@ export default defineNuxtConfig({
           content: "Travel to space with spaceventure, book your trip",
         },
       ],
-      link: [
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-        },
-      ],
+
+      htmlAttrs: {
+        lang: "en",
+      },
     },
   },
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],

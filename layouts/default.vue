@@ -1,15 +1,16 @@
 <template>
-  <div class="min-h-screen">
+  <div>
     <header class="flex justify-center w-full">
       <div class="w-full mx-auto">
         <!-- top settings nav -->
         <div
-          class="flex gap-6 items-center font-light w-full max-w-6xl mx-auto py-6 pl-3 shadow-md"
+          class="flex gap-6 items-center font-light w-full max-w-6xl mx-auto py-6 pl-3 border-b border-gray-200"
         >
           <!-- Mobile menu icon -->
-          <button id="mobile-icon" class="md:hidden" @click="menu = !menu">
-            <i class="material-icons text-brandDarkBlue" v-if="menu">close</i>
-            <i class="material-icons text-brandDarkBlue" v-else>menu</i>
+          <button id="mobile-icon" class="lg:hidden" @click="menu = !menu">
+            <font-awesome-icon icon="fa-solid fa-arrow-left" v-if="menu" />
+
+            <font-awesome-icon icon="fa-solid fa-bars" v-else />
           </button>
 
           <!-- logo -->
@@ -19,9 +20,7 @@
         </div>
 
         <!-- mobile nav container -->
-        <div
-          class="flex justify-center mt-3 w-2/3 relative h-full bg-white md:hidden"
-        >
+        <div class="flex justify-center w-2/3 relative h-full lg:hidden">
           <div
             class="w-full transition-all duration-500 bg-white absolute top-0 z-50 h-screen"
             :class="menu === true ? 'left-0' : '-left-full'"
@@ -29,20 +28,49 @@
             <!-- mobiel nav links -->
             <!-- Some icons -->
             <div
-              class="flex gap-6 mr-3 pb-6 w-full justify-center border-b-2 border-gray-200"
+              class="flex gap-6 mr-3 py-6 w-full justify-center border-b-2 border-gray-200"
             >
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://facebook.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's facebook"
+              >
                 <font-awesome-icon icon="fa-brands fa-facebook-f" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://twitter.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's twitter"
+              >
                 <font-awesome-icon icon="fa-brands fa-twitter" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://google.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's google+"
+              >
                 <font-awesome-icon icon="fa-brands fa-google-plus-g" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://instagram.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's instagram"
+              >
                 <font-awesome-icon icon="fa-brands fa-instagram" />
               </NuxtLink>
+
+              <NuxtLink
+                @click="menu = !menu"
+                to="/login"
+                aria-label="gå til login"
+                class="hover:text-Aqua border-l-2 border-gray-500 pl-3"
+                ><font-awesome-icon icon="fa-solid fa-user-astronaut" />
+                Login</NuxtLink
+              >
             </div>
             <ul class="flex justify-between flex-col max-w-sm mx-auto">
               <li class="flex relative group">
@@ -89,7 +117,7 @@
 
         <!-- Main nav -->
         <nav
-          class="hidden md:flex mx-3 sm:mx-auto px-3 md:px-0 bg-DarkBlue text-white items-center"
+          class="hidden lg:flex mx-3 sm:mx-auto px-3 lg:px-0 bg-DarkBlue text-white items-center"
         >
           <!-- desktop nav -->
           <div
@@ -227,18 +255,46 @@
 
             <!-- Some icons -->
             <div class="flex gap-3 mr-3">
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://facebook.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's facebook"
+              >
                 <font-awesome-icon icon="fa-brands fa-facebook-f" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://twitter.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's twitter"
+              >
                 <font-awesome-icon icon="fa-brands fa-twitter" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://google.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's google+"
+              >
                 <font-awesome-icon icon="fa-brands fa-google-plus-g" />
               </NuxtLink>
-              <NuxtLink to="" class="hover:text-Aqua">
+              <NuxtLink
+                to="https://instagram.com/"
+                class="hover:text-Aqua"
+                aria-label="
+              go to spaceenture's instagram"
+              >
                 <font-awesome-icon icon="fa-brands fa-instagram" />
               </NuxtLink>
+
+              <NuxtLink
+                to="/login"
+                aria-label="gå til login"
+                class="hover:text-Aqua text-white border-l-2 border-Aqua pl-3"
+                ><font-awesome-icon icon="fa-solid fa-user-astronaut" />
+                Login</NuxtLink
+              >
             </div>
           </div>
         </nav>
@@ -257,7 +313,7 @@
       >
         <!-- kontakt -->
         <div
-          class="text-center md:text-left w-full flex flex-col justify-center md:justify-start mx-3"
+          class="text-center md:text-left w-full flex flex-col justify-center md:justify-start"
         >
           <h6 class="uppercase pb-4">Kontakt</h6>
           <ul class="flex flex-col gap-3 mx-auto md:mx-0">
@@ -335,21 +391,41 @@
       <!-- sub footer -->
       <div class="bg-DarkerDarkBlue">
         <div
-          class="container max-w-6xl mx-auto p-6 text-BlueGrey flex justify-between"
+          class="container max-w-6xl mx-auto p-6 text-BlueGrey flex flex-col md:flex-row justify-between"
         >
           <p>&copy; 2021 Space Venture. All rights reserved.</p>
           <!-- Some icons -->
           <div class="flex gap-3">
-            <NuxtLink to="https://www.com/" class="hover:text-Aqua">
+            <NuxtLink
+              to="https://facebook.com/"
+              class="hover:text-Aqua"
+              aria-label="
+            go to spaceenture's facebook"
+            >
               <font-awesome-icon icon="fa-brands fa-facebook-f" />
             </NuxtLink>
-            <NuxtLink to="" class="hover:text-Aqua">
+            <NuxtLink
+              to="https://twitter.com/"
+              class="hover:text-Aqua"
+              aria-label="
+            go to spaceenture's twitter"
+            >
               <font-awesome-icon icon="fa-brands fa-twitter" />
             </NuxtLink>
-            <NuxtLink to="" class="hover:text-Aqua">
+            <NuxtLink
+              to="https://google.com/"
+              class="hover:text-Aqua"
+              aria-label="
+            go to spaceenture's google+"
+            >
               <font-awesome-icon icon="fa-brands fa-google-plus-g" />
             </NuxtLink>
-            <NuxtLink to="" class="hover:text-Aqua">
+            <NuxtLink
+              to="https://instagram.com/"
+              class="hover:text-Aqua"
+              aria-label="
+            go to spaceenture's instagram"
+            >
               <font-awesome-icon icon="fa-brands fa-instagram" />
             </NuxtLink>
           </div>

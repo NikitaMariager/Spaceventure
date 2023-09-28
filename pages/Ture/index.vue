@@ -1,8 +1,9 @@
 <template>
   <div>
     <Banner image="banner-ture" title="Ture" />
-    <section class="container max-w-5xl mx-auto py-20">
-      <div v-for="tour in tours.slice(indexStart, indexEnd)">
+
+    <section class="container max-w-5xl mx-auto py-6">
+      <div v-for="tour in tripsSortedByDate.slice(indexStart, indexEnd)">
         <Tur :turInfo="tour" />
       </div>
 
@@ -67,4 +68,13 @@ function next() {
 function goToPage(i) {
   current.value = i;
 }
+
+const tripsSortedByDate = computed(() => {
+  const sortedTrips = tours.value.slice().sort((a, b) => {
+    const dateA = new Date(a.spacelaunch);
+    const dateB = new Date(b.spacelaunch);
+    return dateA - dateB;
+  });
+  return sortedTrips;
+});
 </script>

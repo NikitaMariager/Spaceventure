@@ -6,16 +6,16 @@ export default {
       colors: {
         DarkerDarkBlue: "#11263A",
         DarkBlue: "#172E44",
-        Aqua: "#02B3A7",
+        Aqua: "#02A399",
         LightGrey: "#F7F7F7",
         BlueGrey: "#596875",
         DarkBlueGrey: "#304559",
       },
       keyframes: {
         wiggle: {
-          "0%": { " object-position": "bottom" },
-          "50%": { " object-position": "top" },
-          "100%": { " object-position": "bottom" },
+          "0%": { " object-position": "top" },
+          "50%": { " object-position": "bottom" },
+          "100%": { " object-position": "top" },
         },
         slideDown: {
           "0%": { left: "0px" },
@@ -39,7 +39,7 @@ export default {
         },
       },
       animation: {
-        wiggleUp: "wiggle 100s infinite",
+        wiggleUp: "wiggle 70s infinite",
         slide: "slideDown 500ms 1",
         sliderHeader1: "sliderTitle 1000ms 1",
         sliderHeader2: "sliderHeader 1000ms 1",

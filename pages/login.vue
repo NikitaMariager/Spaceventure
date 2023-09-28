@@ -1,7 +1,6 @@
 <template>
   <div class="h-screen bg-DarkBlue pt-40">
     <form
-      action=""
       @submit.prevent="handleSubmit"
       class="bg-white mx-auto p-20 rounded-lg shadow-2xl w-fit"
     >
@@ -56,7 +55,7 @@ const handleSubmit = async () => {
         // Admin user login
         // Redirect to the admin dashboard or perform admin-specific actions
         msg.value = "AdminLogin successful!";
-        navigateTo("/admin/ture");
+        navigateTo(`/admin/profil?email=${formData.value.email}`);
       } else {
         // Regular user login
         // Redirect to the user dashboard or perform user-specific actions

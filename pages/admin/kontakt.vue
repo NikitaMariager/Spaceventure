@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="flex justify-between items-center pb-12">
       <h2 class="text-2xl font-bold">Kontak - beskeder</h2>
-      <div class="flex">
+      <div class="flex flex-col md:flex-row">
         <p>Sorter efter:</p>
         <select
           v-model="sorting"
@@ -38,22 +38,24 @@
           </button>
         </div>
 
-        <div class="flex text-gray-500">
-          <p class="border-r border-gray-400 pr-3">
+        <div class="flex flex-col md:flex-row text-gray-500 pt-3 md:pt-0">
+          <p class="border-b md:border-r border-gray-400 pr-3 pb-3 md:pb-0">
             Email: {{ contact.email }}
           </p>
-          <p class="border-r border-gray-400 px-3">
+          <p
+            class="border-b py-3 md:py-0 md:border-r border-gray-400 px-0 md:px-3"
+          >
             Modtaget d. {{ dateConvertDay(contact.received) }}
           </p>
           <p
-            class="px-3 cursor-pointer hover:text-red-800"
+            class="px-3 cursor-pointer hover:text-red-800 pt-3 md:pt-0"
             @click="handleDelete(contact._id)"
           >
             Slet
           </p>
         </div>
 
-        <div class="border-t border-gray-200 pt-3 mt-3">
+        <div class="border-t border-gray-400 pt-3 mt-3">
           <p>{{ contact.message }}</p>
         </div>
       </div>

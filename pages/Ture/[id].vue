@@ -1,8 +1,8 @@
 <template>
   <div class="container max-w-6xl mx-auto m-20">
-    <div class="flex gap-16">
+    <div class="flex flex-col md:flex-row gap-16 mx-6 md:mx-0">
       <!-- images -->
-      <div class="flex flex-col gap-6 w-1/2">
+      <div class="flex flex-col gap-6 w-full md:w-1/2">
         <div class="w-full h-full overflow-hidden">
           <img
             :src="`http://localhost:4444/images/tours/${tour.image1}`"
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="w-1/2 relative text-gray-400">
+      <div class="w-full md:w-1/2 relative text-gray-400">
         <div
           class="pricemark bg-Aqua px-3 pt-6 pb-10 uppercase text-white w-fit absolute right-0"
         >
@@ -78,7 +78,7 @@
 
         <!-- Share -->
         <div
-          class="text-black py-8 text-2xl font-light flex gap-6 items-center"
+          class="text-black py-8 text-2xl font-light flex gap-6 items-center justify-center md:justify-start"
         >
           <span class="uppercase">Share</span>
           <font-awesome-icon

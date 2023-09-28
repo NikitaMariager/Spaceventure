@@ -27,7 +27,7 @@
 
     <div class="flex transition-[2s] p-4 gap-4">
       <!-- gallery colum -->
-      <div class="flex flex-col w-1/4 gap-4">
+      <div class="flex flex-col w-1/3 md:w-1/4 gap-4">
         <div v-for="(star, index) in Array.apply(null, { length: 24 })">
           <div
             class="w-full overflow-hidden"
@@ -47,7 +47,7 @@
         </div>
       </div>
       <!-- gallery colum -->
-      <div class="flex flex-col w-1/4 gap-4">
+      <div class="flex flex-col w-1/3 md:w-1/4 gap-4">
         <div v-for="(star, index) in Array.apply(null, { length: 24 })">
           <div
             class="w-full overflow-hidden"
@@ -67,7 +67,7 @@
         </div>
       </div>
       <!-- gallery colum -->
-      <div class="flex flex-col w-1/4 gap-4">
+      <div class="flex flex-col w-1/3 md:w-1/4 gap-4">
         <div v-for="(star, index) in Array.apply(null, { length: 24 })">
           <div
             class="w-full overflow-hidden"
@@ -87,7 +87,7 @@
         </div>
       </div>
       <!-- gallery colum -->
-      <div class="flex flex-col w-1/4 gap-4">
+      <div class="w-1/4 gap-4 hidden md:flex flex-col">
         <div v-for="(star, index) in Array.apply(null, { length: 24 })">
           <div
             class="w-full overflow-hidden"

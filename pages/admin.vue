@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="container max-w-6xl mx-auto py-12">
-      <h1 class="text-3xl">Admin</h1>
-      <div class="flex mt-6 gap-12">
+      <h1 class="text-3xl mx-6 md:mx-0">Admin</h1>
+      <div class="flex flex-col md:flex-row mt-6 gap-12 mx-6 md:mx-0">
         <!-- Admin nav -->
-        <div class="w-fit">
+        <div class="w-full md:w-fit">
           <div v-for="link in adminArray">
             <NuxtLink
               :to="link.path"
@@ -36,6 +36,6 @@ const adminArray = [
   { path: "/admin/rumfaergen", text: "Rumfærgen" },
   { path: "/admin/kontakt", text: "Kontakt" },
   { path: "/admin/nyhedsbreve", text: "Nyhedsbrev" },
-  { path: "/admin/bruger", text: "Brugere" },
+  { path: "/admin/profil", text: "Profil" },
 ];
 </script>

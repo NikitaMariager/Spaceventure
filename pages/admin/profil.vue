@@ -1,7 +1,8 @@
 <template>
-  <div class="container max-w-5xl mx-auto max-h-screen relative">
+  <div class="container max-w-5xl mx-auto max-h-screen relative" v-if="name">
     <h1 class="text-3xl py-12">
-      Velkommen {{ name }}
+      Velkommen
+      {{ name }}
       <font-awesome-icon icon="fa-solid fa-user-astronaut" />
     </h1>
 
@@ -40,30 +41,6 @@
           type="submit"
           class="bg-Aqua py-3 w-full text-white hover:bg-DarkBlue mt-3"
           @click.prevent="handleSubmit"
-        >
-          Ret
-        </button>
-      </form>
-    </div>
-
-    <!-- Afmeld nyhedsbrev-->
-    <div class="border-gray-200 border-2 p-3 mb-12">
-      <h2 class="text-xl pb-6 font-bold">Afmeld nyhedsbrev</h2>
-      <form>
-        <div class="flex justify-between gap-3 items-center">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            class="bg-LightGrey p-3 mr-6 w-full"
-            v-model="email"
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="bg-Aqua py-3 w-full text-white hover:bg-DarkBlue mt-3"
-          @click.prevent="handleUnsubscribe"
         >
           Ret
         </button>
@@ -110,27 +87,28 @@
 </template>
 
 <script setup>
-const route = useRoute();
-const userEmail = ref(route.query.email);
 const deletet = ref(false);
 const msg = ref("");
 const postMessageActive = ref(false);
 
-const { data: user } = await useFetch(
-  `http://localhost:4444/user/admin/email/${userEmail.value}`,
-  {
-    watch: [msg],
-  }
-);
+const { data: user } = await useFetch(`http://localhost:4444/user/admin`, {
+  watch: [msg],
+});
 
-const name = ref(user.value.name);
-const email = ref(user.value.email);
-const password = ref(user.value.password);
-const admin = ref(false);
+const getAdmin = computed(() => {
+  if (user.value) {
+    return user.value.filter((userData) => userData.admin === true);
+  }
+});
+
+const name = ref(getAdmin.value[0]?.name);
+const email = ref(getAdmin.value[0]?.email);
+const password = ref(getAdmin.value[0]?.password);
+const admin = ref(true);
 
 const handleSubmit = async () => {
   const { data: responseData, error } = await useFetch(
-    `http://localhost:4444/user/admin/${user.value._id}`,
+    `http://localhost:4444/user/admin/${getAdmin.value[0]._id}`,
     {
       method: "put",
       body: {
@@ -162,26 +140,6 @@ const handleDelete = async (id) => {
       setMessage(`Der er sket en fejl: ${error.value}`);
     } else if (responseData) {
       deletet.value = true;
-    }
-  }
-};
-
-/* Delete */
-
-const handleUnsubscribe = async (id) => {
-  if (confirm("Er du sikker på du vil afmeldes?")) {
-    const { data: responseData, error } = await useFetch(
-      `http://localhost:4444/newssubscription/afmeld/${user.value.email}`,
-      {
-        method: "delete",
-      }
-    );
-    if (error.value !== null) {
-      setMessage(
-        `Der er sket en fejl: ${error.value}, du er ikke tilmeldt nyhedsbrevet`
-      );
-    } else if (responseData) {
-      setMessage("du er nu afmeldt nyhedsbrevet");
     }
   }
 };

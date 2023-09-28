@@ -32,16 +32,16 @@
       <div v-for="(tour, index) in tours">
         <!-- put modal -->
 
-        <div>
+        <div class="ml-6 md:ml-0">
           <button
             @click="handleDelete(tour._id, tour.title)"
-            class="hover:text-red-800 px-2 pt-2"
+            class="hover:text-red-800 px-2 pt-2 text-2xl md:text-xl"
           >
             <font-awesome-icon icon="fa-solid fa-trash" />
           </button>
 
           <button
-            class="hover:text-yellow-600 px-2 pt-2"
+            class="hover:text-yellow-600 px-2 pt-2 text-2xl md:text-xl"
             @click="openModal(item, tour)"
           >
             <font-awesome-icon icon="fa-solid fa-pen-to-square" />

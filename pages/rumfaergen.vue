@@ -2,8 +2,8 @@
   <div>
     <Banner image="banner-spaceship" title="Rumfærgen" />
     <main class="container max-w-6xl mx-auto">
-      <section class="flex gap-20 py-20">
-        <div class="w-1/2">
+      <section class="flex flex-col md:flex-row gap-20 py-6 md:py-20 mx-3">
+        <div class="w-full md:w-1/2">
           <img
             :src="`http://localhost:4444/images/spacecraft/${about.image}`"
             alt="om os- billede af jordkloden genne vinduet på en space-shuttle"
@@ -11,7 +11,7 @@
           />
         </div>
 
-        <div class="w-1/2 flex flex-col justify-between">
+        <div class="w-full md:w-1/2 flex flex-col justify-between">
           <div>
             <h3 class="text-5xl text-gray-200 font-extralight">
               Hvorfor vælge os

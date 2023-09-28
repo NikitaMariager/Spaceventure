@@ -1,16 +1,19 @@
 <template>
-  <div class="h-96 relative">
-    <img
-      :src="`_nuxt/assets/images/${image}.jpg`"
-      alt=""
-      class="w-full h-full object-cover animate-wiggleUp"
-    />
-
-    <h1
-      class="absolute top-1/2 text-white text-4xl left-1/2 -translate-x-1/2 -translate-y-1/2"
+  <div class="h-52 md:h-96 overflow-hidden">
+    <div
+      class="h-40 md:h-80 transition-all ease-in-out animate-wiggleUp relative"
     >
-      {{ title }}
-    </h1>
+      <img
+        :src="`_nuxt/assets/images/${image}.jpg`"
+        alt=""
+        class="w-full h-full animate-wiggleUp object-cover"
+      />
+      <h1
+        class="absolute top-1/2 text-white text-4xl left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        {{ title }}
+      </h1>
+    </div>
   </div>
 </template>
 <script setup>

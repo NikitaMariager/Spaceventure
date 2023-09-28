@@ -1,7 +1,7 @@
 <template>
   <!-- respons message -->
   <div
-    class="bg-Aqua p-3 h-52 w-80 fixed bottom-6 z-50 right-6"
+    class="bg-Aqua p-3 h-52 min-w-[320px] fixed bottom-6 z-50 right-6"
     v-if="displayRes"
   >
     <div

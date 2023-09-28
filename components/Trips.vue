@@ -31,6 +31,8 @@
         </div>
       </NuxtLink>
     </div>
+
+    <NextTrip :trips="Trips" />
   </div>
 </template>
 <script setup>

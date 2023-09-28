@@ -1,18 +1,18 @@
 <template>
-  <div class="container max-w-6xl mx-auto py-12 w-full">
-    <LeafMap />
-    <div>
+  <div class="container max-w-6xl py-12 mx-auto">
+    <LazyLeafMap class="mx-6 md:mx-0" />
+    <div class="mx-6 md:mx-0">
       <div class="flex py-6 items-center">
         <h1 class="border-r border-gray-300 w-fit pr-3 text-2xl font-semibold">
           Kontakt
         </h1>
-        <p class="pl-3 text-BlueGrey">
+        <p class="pl-3 text-BlueGrey text-sm">
           skulle du sidde med et spørgsmål eller to, så skriv endelig til os og
           vi vil kontakte dig hurtigst muligt.
         </p>
       </div>
-      <form action="">
-        <div class="flex gap-3">
+      <form class="w-full">
+        <div class="flex flex-col md:flex-row gap-3">
           <input
             type="text"
             name="name"

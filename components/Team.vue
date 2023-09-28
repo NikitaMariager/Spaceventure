@@ -15,7 +15,7 @@
           </div>
 
           <div class="text-center bg-LightGrey pt-20 pb-10">
-            <h4 class="font-semibold">{{ member.name }}</h4>
+            <h5 class="font-semibold">{{ member.name }}</h5>
             <p class="text-Aqua text-sm pb-3">{{ member.role }}</p>
 
             <NuxtLink :to="`tel:${member.phone}`" class="font-light">{{
