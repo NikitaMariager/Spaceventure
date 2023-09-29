@@ -6,9 +6,9 @@
         class="bg-[#34374299] w-full h-full p-12 m-auto top-0 left-0 backdrop-blur-md"
       >
         <div
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute w-full md:max-w-xl top-28 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2"
         >
-          <div class="bg-white relative max-w-4xl mx-auto">
+          <div class="bg-white relative mx-6 md:max-w-4xl md:mx-auto">
             <div
               @click="closeModal()"
               :data="modalData"
@@ -18,7 +18,7 @@
             </div>
 
             <div>
-              <img :src="modalId" alt="" class="w-full h-full" />
+              <img :src="modalId" alt="" class="w-full h-full object-contain" />
             </div>
           </div>
         </div>

@@ -1,5 +1,8 @@
 <template>
-  <form class="shadow-md transition duration-200 overflow-hidden h-full mb-6">
+  <form
+    class="shadow-md transition duration-200 overflow-hidden h-full mb-6"
+    name="Tilføj tur"
+  >
     <div>
       <!-- image 1 -->
       <div class="w-full h-full flex justify-between flex-col">

@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       ],
 
       htmlAttrs: {
-        lang: "en",
+        lang: "da",
       },
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex flex-col md:flex-row mb-10 border-[1px] border-LightGrey mx-6 md:mx-0"
+      class="flex flex-col md:flex-row mb-10 border-[1px] border-LightGrey mx-6"
     >
       <div class="w-full md:w-1/2">
         <img

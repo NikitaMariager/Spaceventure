@@ -3,7 +3,7 @@
     <h2 class="text-2xl font-bold">Rumfærgen</h2>
 
     <form class="container max-w-6xl mx-auto">
-      <section class="flex flex-col md:flex-row gap-20 py-20">
+      <section class="flex flex-col-reverse md:flex-row gap-20 py-20">
         <div class="w-full md:w-1/2 h-full">
           <img
             :src="`http://localhost:4444/images/spacecraft/${about.image}`"

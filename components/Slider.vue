@@ -70,11 +70,12 @@
 </template>
 
 <script setup>
+/* vertical slider whith clickable nav, stops on hover and starts again when mouse leave */
 const { data: slides } = await useFetch("http://localhost:4444/banner");
 
-const clickIndex = ref(null);
+const clickIndex = ref(null); //For nav to set click index for the specific button
 
-const slide = ref([]);
+const slide = ref([]); //empty array to be filled with imgages from api on mounted
 
 const carouselContainer = ref(null);
 
@@ -108,15 +109,18 @@ function slideTo(scrollPos) {
 function nextSlide() {
   const container = carouselContainer.value;
 
-  /* current index sammelinges med mængden af billede og starter slider forfra når currentindex er lig mængden af billeder */
+  /* CurrentIndex to keep track of when to reset slider */
   currentIndex.value = currentIndex.value + 1;
-  /* previndex bruges til at sætte navigationen */
+
+  /* previndex sets navigation */
   prevIndex.value = currentIndex.value * 600;
 
-  if (prevIndex.value === 1800) {
+  //restes prev index when it reaches max of images
+  if (prevIndex.value === 600 * totalImages) {
     prevIndex.value = 0;
   }
 
+  //resets when current index is the same as amount of images in slider
   if (currentIndex.value === totalImages.value) {
     container.scrollTo(0, 0);
     prevIndex.value = 0;
@@ -126,7 +130,7 @@ function nextSlide() {
   }
 
   // Start the automatic slide transition timer
-  /* startSlideTimeout(); */
+  startSlideTimeout();
 }
 
 function startSlideTimeout() {

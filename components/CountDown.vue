@@ -23,7 +23,7 @@ const props = defineProps({
 
 /* Count down */
 
-// sætter dato for næste afrejse
+// sest date for next launch given as prop
 const targetDate = new Date(props.launchDate).getTime();
 
 const days = ref(0);
@@ -35,14 +35,16 @@ const message = ref("");
 
 // Function to update the countdown
 const updateCountdown = () => {
-  /* dags dato og tid */
+  /* getting date of today*/
   const now = new Date().getTime();
 
+  //getting time diffenrence between lanchdate and today
   const timeDifference = targetDate - now;
 
+  //getting time difference in sec.
   if (timeDifference > 0) {
-    const remainingSeconds = Math.floor(timeDifference / 1000); //tidsforskellen i sek.
-    days.value = Math.floor(remainingSeconds / 86400); // finder hele dage, da der er 86400 sek på en dag
+    const remainingSeconds = Math.floor(timeDifference / 1000);
+    days.value = Math.floor(remainingSeconds / 86400); // get whole days in sec, since there is 86400 sec in a day.
     hours.value = Math.floor((remainingSeconds % 86400) / 3600); //%trækker hele dage fra og finder hele timer ud fra den resterende tid divider med 3600 antal sek der går på en time
     minutes.value = Math.floor((remainingSeconds % 3600) / 60); // % trækker hele timer fra og finder hele min da der går 60 sek på et minut
     seconds.value = remainingSeconds % 60; //trækker hele min fra og det resterende er sek der er til rejse

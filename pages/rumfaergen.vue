@@ -2,7 +2,7 @@
   <div>
     <Banner image="banner-spaceship" title="Rumfærgen" />
     <main class="container max-w-6xl mx-auto">
-      <section class="flex flex-col md:flex-row gap-20 py-6 md:py-20 mx-3">
+      <section class="flex flex-col md:flex-row gap-20 py-6 md:py-20 mx-6">
         <div class="w-full md:w-1/2">
           <img
             :src="`http://localhost:4444/images/spacecraft/${about.image}`"

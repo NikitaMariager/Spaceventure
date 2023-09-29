@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-6xl py-12 mx-auto">
-    <LazyLeafMap class="mx-6 md:mx-0" />
-    <div class="mx-6 md:mx-0">
+    <LazyLeafMap class="mx-6" />
+    <div class="mx-6">
       <div class="flex py-6 items-center">
         <h1 class="border-r border-gray-300 w-fit pr-3 text-2xl font-semibold">
           Kontakt

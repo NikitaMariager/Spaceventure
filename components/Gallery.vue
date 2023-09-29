@@ -5,7 +5,7 @@
         class="overflow-x-scroll overscroll-none w-full snap-mandatory flex scroll-smooth image-carousel"
         ref="carouselContainer"
       >
-        <div v-for="(slide, index) in gallery" :key="index">
+        <div v-for="(slide, index) in gallery" :key="index" class="flex-grow">
           <div
             class="flex-none md:flex snap-start w-screen md:w-full relative slide"
           >

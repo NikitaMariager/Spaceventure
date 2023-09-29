@@ -25,8 +25,7 @@
             class="w-full transition-all duration-500 bg-white absolute top-0 z-50 h-screen"
             :class="menu === true ? 'left-0' : '-left-full'"
           >
-            <!-- mobiel nav links -->
-            <!-- Some icons -->
+            <!-- Mobile Some icons -->
             <div
               class="flex gap-6 mr-3 py-6 w-full justify-center border-b-2 border-gray-200"
             >
@@ -72,6 +71,7 @@
                 Login</NuxtLink
               >
             </div>
+            <!-- Mobile links -->
             <ul class="flex justify-between flex-col max-w-sm mx-auto">
               <li class="flex relative group">
                 <NuxtLink to="/" class="mr-1 p-4" @click="menu = !menu"
@@ -88,10 +88,41 @@
                 </NuxtLink>
               </li>
 
-              <li class="flex relative group">
-                <NuxtLink to="/ture" class="mr-1 p-4" @click="menu = !menu"
-                  >Ture
-                </NuxtLink>
+              <!-- Mobile Dropdown -->
+              <li class="relative group">
+                <div
+                  class="flex justify-between"
+                  @click="mobileDropdown = !mobileDropdown"
+                >
+                  <NuxtLink to="/ture" class="mr-1 p-4" @click="menu = !menu"
+                    >Ture
+                  </NuxtLink>
+                  <span v-if="mobileDropdown"
+                    ><font-awesome-icon icon="fa-solid fa-chevron-up"
+                  /></span>
+
+                  <span v-else
+                    ><font-awesome-icon icon="fa-solid fa-chevron-down"
+                  /></span>
+                </div>
+
+                <div
+                  class="pl-6 bg-LightGrey transform transition-all duration-200 ease-in-out"
+                  v-if="mobileDropdown"
+                >
+                  <li
+                    class="text-sm p-2 rounded-lg leading-8"
+                    v-for="trip in trips"
+                  >
+                    <NuxtLink
+                      :to="`/ture/${trip._id}`"
+                      class="border-l-4 border-transparent hover:border-Aqua hover:pl-3 transition-all duration-200"
+                      @click="closeNav"
+                    >
+                      {{ trip.destination }}
+                    </NuxtLink>
+                  </li>
+                </div>
               </li>
 
               <li class="flex relative group">
@@ -437,6 +468,12 @@
 
 <script setup>
 const menu = ref(false);
+const mobileDropdown = ref(false);
+
+function closeNav() {
+  menu.value = false;
+  mobileDropdown.value = false;
+}
 
 const { data: trips } = await useFetch("http://localhost:4444/tours");
 </script>

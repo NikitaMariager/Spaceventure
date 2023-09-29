@@ -2,9 +2,7 @@
   <div>
     <Banner image="safety" title="Sikkerhed" />
     <main class="container max-w-6xl mx-auto">
-      <section
-        class="flex flex-col-reverse md:flex-row gap-20 py-12 mx-6 md:mx-0"
-      >
+      <section class="flex flex-col-reverse md:flex-row gap-20 py-12 mx-6">
         <div class="w-full md:w-1/2">
           <img
             src="../assets/images/safety1.jpg"

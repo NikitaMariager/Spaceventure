@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-6xl mx-auto m-20">
-    <div class="flex flex-col md:flex-row gap-16 mx-6 md:mx-0">
+    <div class="flex flex-col md:flex-row gap-16 mx-6">
       <!-- images -->
       <div class="flex flex-col gap-6 w-full md:w-1/2">
         <div class="w-full h-full overflow-hidden">
